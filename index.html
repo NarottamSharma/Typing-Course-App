@@ -40,41 +40,40 @@
           <div class="stat-value" id="characters">0</div>
           <div class="stat-label">Characters</div>
         </div>
-
-        <div class="progress-container">
-          <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-          </div>
-          <div class="progress-text" id="progressText">Ready To Start</div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
         </div>
-        <div class="text-container">
-          <div class="text-content" id="textContent"></div>
-        </div>
-        <div class="input-section">
-          <input
-            type="text"
-            class="typing-input"
-            id="typingInput"
-            placeholder="Click Start to Begin Typing"
-            disabled
-            autocomplete="off"
-            spellcheck="off"
-          />
-        </div>
-        <div class="controls">
-          <button class="btn btn-primary" id="startBtn">
-            <i class="fas fa-play"></i>
-            Start Test
-          </button>
-          <button class="btn btn-secondary" id="resetBtn">
-            <i class="fas fa-redo"></i>
-            Reset
-          </button>
-        </div>
+        <div class="progress-text" id="progressText">Ready To Start</div>
+      </div>
+      <div class="text-container">
+        <div class="text-content" id="textContent"></div>
+      </div>
+      <div class="input-section">
+        <input
+          type="text"
+          class="typing-input"
+          id="typingInput"
+          placeholder="Click Start to Begin Typing"
+          disabled
+          autocomplete="off"
+          spellcheck="off"
+        />
+      </div>
+      <div class="controls">
+        <button class="btn btn-primary" id="startBtn">
+          <i class="fas fa-play"></i>
+          Start Test
+        </button>
+        <button class="btn btn-secondary" id="resetBtn">
+          <i class="fas fa-redo"></i>
+          Reset
+        </button>
       </div>
       <div class="results-modal" id="resultsModal">
         <div class="results-content">
-          <h2 class="results-title">Test! Complete</h2>
+          <h2 class="results-title">Test Complete</h2>
           <div class="results-stats">
             <div class="result-stat-value" id="finalWPM">0</div>
             <div class="result-stat-label">WPM</div>
@@ -87,7 +86,11 @@
             <div class="result-stat-value" id="finalCharacters">0</div>
             <div class="result-stat-label">Characters</div>
           </div>
-          <button class="btn btn-primary" onclick="closeResult()">
+          <button
+            class="btn btn-primary"
+            id="tryAgainBtn"
+            onclick="closeResult()"
+          >
             <i class="fas fa-redo"></i>
             Try Again
           </button>
