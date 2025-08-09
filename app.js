@@ -107,7 +107,7 @@ function updateTimer() {
 
 function updateStats() {
   const timeElapsed = startTime ? (Date.now() - startTime) / 1000 / 60 : 0;
-  const wpm = timeElapsed > 0 ? Math.round((totalChars / 5) / timeElapsed) : 0;
+  const wpm = timeElapsed > 0 ? Math.round(totalChars / 5 / timeElapsed) : 0;
   const accuracy =
     totalChars > 0
       ? Math.round(((totalChars - errors) / totalChars) * 100)
@@ -132,7 +132,7 @@ function endTest() {
 
   // Show results
   const timeElapsed = (Date.now() - startTime) / 1000 / 60;
-  const finalWPM = Math.round((totalChars / 5) / timeElapsed);
+  const finalWPM = Math.round(totalChars / 5 / timeElapsed);
   const finalAccuracy = Math.round(((totalChars - errors) / totalChars) * 100);
 
   document.getElementById("finalWPM").textContent = finalWPM;
@@ -156,12 +156,12 @@ typingInput.addEventListener("input", (e) => {
   if (!isActive) return;
 
   const inputValue = e.target.value;
-  
+
   // Handle backspace/corrections
   if (inputValue.length < currentIndex) {
     // User deleted characters, reset the current index
     currentIndex = inputValue.length;
-    
+
     // Reset all characters after current position to pending state
     for (let i = currentIndex; i < currentText.length; i++) {
       const charElement = document.querySelector(`[data-index="${i}"]`);
@@ -169,13 +169,15 @@ typingInput.addEventListener("input", (e) => {
         charElement.className = "char pending";
       }
     }
-    
+
     // Highlight the current character
-    const currentCharElement = document.querySelector(`[data-index="${currentIndex}"]`);
+    const currentCharElement = document.querySelector(
+      `[data-index="${currentIndex}"]`
+    );
     if (currentCharElement) {
       currentCharElement.className = "char current";
     }
-    
+
     updateProgress();
     return;
   }
@@ -184,7 +186,9 @@ typingInput.addEventListener("input", (e) => {
   if (inputValue.length > currentIndex) {
     const typedChar = inputValue[currentIndex];
     const currentChar = currentText[currentIndex];
-    const charElement = document.querySelector(`[data-index="${currentIndex}"]`);
+    const charElement = document.querySelector(
+      `[data-index="${currentIndex}"]`
+    );
 
     totalChars++;
 
