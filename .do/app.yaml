@@ -1,0 +1,16 @@
+name: typing-course-app
+services:
+- name: web
+  source_dir: /
+  github:
+    repo: NarottamSharma/Typing-Course-App
+    branch: main
+  run_command: echo "Static site - no build required"
+  environment_slug: html
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  routes:
+  - path: /
+domains:
+- domain: project.codebynarottam.tech
+  type: PRIMARY
